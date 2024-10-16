@@ -1,0 +1,122 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+}
+.header {
+  position: relative;
+  color: #fff;
+  padding: 20px 0 20px 100px;
+  text-align: left;
+  background-image: url('../img/anh-chill-buon-tuyet-dep_044342304.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1;
+}
+.header h1,
+.header .nav {
+  position: relative;
+  z-index: 2;
+}
+.header .nav {
+  margin: 20px auto;
+  border-radius: 100px;
+  background: #515456;
+  padding: 20px;
+  display: inline-flex;
+  transition: background-color 0.3s;
+}
+.header .nav:hover {
+  background-color: #3f3d3f;
+}
+.header .nav a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.header .nav a:hover {
+  color: #ffcc00;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+.container .card {
+  background: #fff;
+  border-top: 5px solid orange !important;
+  border: 1px solid #ddd;
+  border-radius: 0px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin: 15px;
+  padding: 40px 20px 20px 20px;
+  width: 300px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+.container .card i {
+  position: unset;
+  left: 10px;
+  top: 50%;
+  font-size: 50px;
+  color: #ca8d64;
+  transition: color 0.3s;
+}
+.container .card h3 {
+  color: #171515;
+  position: relative;
+  padding-left: 30px;
+  transition: color 0.3s;
+}
+.container .card p {
+  color: #1b1a1a;
+  transition: color 0.3s;
+}
+.container .card a {
+  display: inline-block;
+  margin-top: 10px;
+  border: 2px solid #d0ccc4;
+  padding: 10px 15px;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: color 0.3s, background-color 0.3s;
+}
+.container .card a:hover {
+  background-color: #cbeb4ec7;
+  color: #fff;
+}
+.container .card:hover {
+  transform: scale(1.1);
+  background-color: #f56d3e;
+}
+.container .card:hover h3 {
+  color: #fff !important;
+}
+.container .card:hover p {
+  color: #fff !important;
+}
+.container .card:hover i {
+  color: #fff !important;
+}
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}

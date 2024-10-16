@@ -1,0 +1,157 @@
+@base-bg-color: #f2f2f2;
+@header-text-color: #fff;
+@nav-bg-color: #515456;
+@nav-hover-bg-color: #3f3d3f;
+@nav-hover-text-color: #ffcc00;
+@card-border-color: #ddd;
+@card-title-color: #171515;
+@card-text-color: #1b1a1a;
+@card-hover-bg-color: #f56d3e;
+@card-hover-text-color: #fff;
+@card-icon-color: #ca8d64;
+@card-link-bg-color: #cbeb4ec7;
+@card-link-text-color: #fff;
+@footer-bg-color: #333;
+@footer-text-color: #fff;
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: @base-bg-color;
+}
+
+.header {
+    position: relative; /* Positioning context for the overlay */
+    color: @header-text-color;
+    padding: 20px 0 20px 100px;
+    text-align: left;
+
+    // Background image
+    background-image: url('../img/anh-chill-buon-tuyet-dep_044342304.jpg');
+    background-size: cover; /* Cover the entire header */
+    background-position: center; /* Center the image */
+
+    // Optional overlay for fading effect
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5); /* Dark overlay for fading effect */
+        z-index: 1; /* Behind the text */
+    }
+
+    h1, .nav {
+        position: relative; /* Ensure text is above the overlay */
+        z-index: 2; /* Bring text above the overlay */
+    }
+
+    .nav {
+        margin: 20px auto;
+        border-radius: 100px;
+        background: @nav-bg-color; /* Default background color */
+        padding: 20px;
+        display: inline-flex;
+        transition: background-color 0.3s; /* Smooth transition for background color change */
+
+        &:hover {
+            background-color: @nav-hover-bg-color; /* Change to your desired hover background color */
+        }
+
+        a {
+            color: @header-text-color; /* Default text color */
+            text-decoration: none;
+            transition: color 0.3s; /* Smooth transition for color change */
+
+            &:hover {
+                color: @nav-hover-text-color; /* Change to your desired hover color */
+            }
+        }
+    }
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+
+    .card {
+        background: #fff;
+        border-top: 5px solid orange !important;
+        border: 1px solid @card-border-color;
+        border-radius: 0px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        margin: 15px;
+        padding: 40px 20px 20px 20px;
+        width: 300px;
+        text-align: center;
+        transition: transform 0.3s;
+
+        i {
+            position: unset;
+            left: 10px; // Vị trí icon
+            top: 50%;
+            font-size: 50px; // Kích thước icon
+            color: @card-icon-color; // Màu sắc icon
+            transition: color 0.3s;
+        }
+
+        h3 {
+            color: @card-title-color; // Default color
+            position: relative;
+            padding-left: 30px; // Để tạo khoảng cách cho icon
+            transition: color 0.3s; // Smooth transition for text color
+        }
+
+        p {
+            color: @card-text-color; // Default color
+            transition: color 0.3s; // Smooth transition for text color
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            border: 2px solid #d0ccc4;
+            padding: 10px 15px;
+            background-color: white;
+            color: black;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: color 0.3s, background-color 0.3s;
+            &:hover {
+                background-color: @card-link-bg-color; // Change background color on hover
+                color: @card-link-text-color; // Change text color on hover
+            }
+        }
+
+        &:hover {
+            transform: scale(1.1); /* Phóng to và dịch chuyển lên */
+            background-color: @card-hover-bg-color; /* Màu nền tối hơn khi hover */
+
+            h3 {
+                color: @card-hover-text-color !important; // Change h3 text color to a different color on hover
+            }
+
+            p {
+                color: @card-hover-text-color !important; // Change p text color to a different color on hover
+            }
+            i {
+                color: @card-hover-text-color !important; // Change p text color to a different color on hover
+            }
+        }
+    }
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: @footer-bg-color;
+    color: @footer-text-color;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
