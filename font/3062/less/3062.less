@@ -17,26 +17,35 @@
 @product-title-color: #333; /* Title color */
 @button-bg-color: #007bff; /* Button background color */
 @button-hover-bg-color: #b30021; /* Button hover color */
+@circle-diameter: 100px; // Diameter of the circle
+@circle-bg-color: #fff; // Background color of the circle
+@text-color: #333; // Text color
+@border-radius: 50%; // For circular shape
+@padding: 10px; // Padding inside the circle
+@border-color: #ccc; // Color of the border
+@border-width: 4px; // Width of the border
+
+@transition-duration: 0.8s; // Duration of the transition
 
 .container {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    position: relative; /* Để sử dụng cho lớp phủ */
+    position: relative; /* Positioning context for the overlay */
 
-    background-image: url('../img/5-hinh-nen-xam-trang-inkythuatso-27-14-20-37.jpg'); /* Hình nền */
-    background-size: cover; /* Đảm bảo hình nền phủ đầy toàn bộ phần tử */
-    background-position: center; /* Căn giữa hình nền */
+    background-image: url('../img/5-hinh-nen-xam-trang-inkythuatso-27-14-20-37.jpg'); /* Background image */
+    background-size: cover; /* Ensure the background covers the entire element */
+    background-position: center; /* Center the background image */
 
     &::before {
-        content: ''; /* Tạo lớp phủ */
-        position: absolute; /* Để phủ đầy container */
+        content: ''; /* Create overlay */
+        position: absolute; /* Cover the container */
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        background: @overlay-color; /* Màu trắng với độ mờ 60% */
-        z-index: 1; /* Đặt lớp phủ lên trên hình nền */
+        background: @overlay-color; /* Overlay color */
+        z-index: 1; /* Overlay above the background */
     }
 }
 
@@ -46,20 +55,58 @@
     margin-top: 27px;
     margin-left: 66px;
     z-index: 2;
-    position: relative; /* Để nội dung nằm trên lớp phủ */
+    position: relative; /* Position for content above overlay */
 
     h1 {
         font-size: 30px;
         margin-bottom: 10px;
-        color: @product-title-color; /* Màu chữ */
-        z-index: 2; /* Đặt tiêu đề lên trên lớp phủ */
+        color: @product-title-color; /* Title color */
+        z-index: 2; /* Title above overlay */
     }
 
     p { 
         margin-bottom: 15px;
         line-height: 1.5;
-        color: @product-title-color; /* Màu chữ */
-        z-index: 2; /* Đặt đoạn văn lên trên lớp phủ */
+        color: @product-title-color; /* Paragraph color */
+        z-index: 2; /* Paragraph above overlay */
+    }
+
+
+
+    
+    .price-circle {
+        display: flex;
+        margin-left: 900px;
+        align-items: center; // Center text vertically
+        justify-content: center; // Center text horizontally
+        width: @circle-diameter; // Set width
+        height: @circle-diameter; // Set height
+        background-color: @circle-bg-color; // Background color
+        color: @text-color; // Text color
+        border: @border-width solid @border-color; // Circular border
+        border-radius: @border-radius; // Make it circular
+        text-align: center; // Center text alignment
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); // Optional shadow for depth
+        position: absolute; // Position it relative to the nearest positioned ancestor
+        top: 100%; // Start below the visible area
+        left: 50%; // Center horizontally
+        transform: translateX(-50%); // Adjust horizontal centering
+        opacity: 0; // Start hidden
+        transition: top 0.8s ease, opacity 0.8s ease; // Transition properties
+    
+        // Animation effect when the element is visible
+        &.visible {
+            top: 20%; // Move to desired position
+            opacity: 1; // Make it visible
+        }
+    
+        p {
+            margin: 0; // Remove default margin
+            font-size: 16px;
+            span {
+                font-weight: bold; // Make the price bold
+            }
+        }
     }
 
     .features {
@@ -72,13 +119,13 @@
         li {
             margin: 5px;
             font-size: 16px;
-            width: calc(50% - 10px); /* Hai mục mỗi hàng, trừ đi khoảng cách */
+            width: calc(50% - 10px); /* Two items per row, minus spacing */
             display: inline-block;
-            z-index: 2; /* Đặt mục lên trên lớp phủ */
+            z-index: 2; /* Items above overlay */
         }
 
         i {
-            color: #28a745; /* Màu cho biểu tượng */
+            color: #28a745; /* Icon color */
             margin-right: 5px;
         }
     }
@@ -86,25 +133,34 @@
     .learn-more {
         display: inline-block;
         padding: 10px 15px;
-        background-color: @button-bg-color; /* Thay đổi màu nền nút */
+        background-color: @button-bg-color; /* Button background color */
         color: white;
         text-decoration: none;
         border-radius: 5px;
-        z-index: 2; /* Đặt nút lên trên lớp phủ */
+        z-index: 2; /* Button above overlay */
 
         &:hover {
-            background-color: @button-hover-bg-color; /* Thay đổi màu nền khi hover */
+            background-color: @button-hover-bg-color; /* Button hover background */
         }
     }
 }
-
 .product-image {
     flex: 1;
-    z-index: 1;
+    z-index: 1; // Lower z-index than price-circle
+    position: relative; // Ensure positioning context for child elements
 
     img {
         max-width: 100%;
         height: auto;
         border-radius: 5px;
+        transform: translateY(-20px); // Start slightly above
+        opacity: 0; // Start hidden
+        transition: transform 0.9s ease, opacity 0.9s ease; // Transition properties
+
+        // Animation effect when the element is visible
+        &.visible {
+            transform: translateY(0); // Move to original position
+            opacity: 1; // Make it visible
+        }
     }
 }

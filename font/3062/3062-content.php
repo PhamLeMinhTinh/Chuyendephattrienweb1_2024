@@ -1,4 +1,3 @@
-
 <?php
 $url_host = $_SERVER['HTTP_HOST'];
 
@@ -13,31 +12,35 @@ $url_path = $url_host . $matches[1][0];
 $url_path = str_replace('\\', '/', $url_path);
 ?>
 <body>
-
-<body>
-    <div class="container">
-        <div class="product-info">
-            <h1>Lorem ipsum dolor sit amet</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean cum delectus, sunt eos esse quos dignissimos. Minima deserunt nobis voluptatum, sunt sapiente eius.</p>
-            <div class="price">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean cum delectus, sunt eos esse quos dignissimos. Minima deserunt nobis voluptatum, sunt sapiente eius.</p>
-                <!-- <span class="amount">$9.99</span> USD -->
-            </div>
-            <ul class="features">
-                <li><i class="fas fa-check"></i> Lorem ipsum dolor sit</li>
-                <li><i class="fas fa-check"></i> Lorem ipsum dolor sit</li>
-                <li><i class="fas fa-check"></i> Lorem ipsum dolor sit</li>
-                <li><i class="fas fa-check"></i> Lorem ipsum dolor sit</li>
-            </ul>
-            <a href="#" class="learn-more">Learn More</a>
+<div class="container">
+    <div class="product-info">
+        <h1>Lorem ipsum dolor sit amet</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean cum delectus, sunt eos esse quos dignissimos. Minima deserunt nobis voluptatum, sunt sapiente eius.</p>
+        <div class="price-circle">
+            <p>Starting at <span>$299.99</span>/year</p>
+            <!-- Removed the additional paragraph -->
         </div>
-        <div class="product-image">
-            <img src="img/ảnh.png" alt="Product Image">
-        </div>
+        <ul class="features">
+            <li><i class="fas fa-check"></i> Lorem ipsum dolor sit</li>
+            <li><i class="fas fa-check"></i> Lorem ipsum dolor sit</li>
+            <li><i class="fas fa-check"></i> Lorem ipsum dolor sit</li>
+            <li><i class="fas fa-check"></i> Lorem ipsum dolor sit</li>
+        </ul>
+        <a href="#" class="learn-more">Learn More</a>
     </div>
+    <div class="product-image">
+        <img src="img/ảnh.png" alt="Product Image">
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const priceCircle = document.querySelector('.price-circle');
+        const productImage = document.querySelector('.product-image img');
+
+        priceCircle.classList.add('visible'); // Add the class to trigger the animation
+        productImage.classList.add('visible'); // Add the class to trigger the animation
+    });
+</script>
 </body>
 
 <!-- //<script src="js/scripts.js"></script> -->
-</body>
-</div>
-</div>  
