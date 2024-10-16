@@ -13,10 +13,14 @@
 @card-link-text-color: #fff;
 @footer-bg-color: #333;
 @footer-text-color: #fff;
-@overlay-color: rgba(255, 255, 255, 0.6); /* Overlay color */
-@product-title-color: #333; /* Title color */
-@button-bg-color: #007bff; /* Button background color */
-@button-hover-bg-color: #b30021; /* Button hover color */
+@overlay-color: rgba(255, 255, 255, 0.6);
+/* Overlay color */
+@product-title-color: #333;
+/* Title color */
+@button-bg-color: #007bff;
+/* Button background color */
+@button-hover-bg-color: #b30021;
+/* Button hover color */
 @circle-diameter: 100px; // Diameter of the circle
 @circle-bg-color: #fff; // Background color of the circle
 @text-color: #333; // Text color
@@ -31,21 +35,29 @@
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    position: relative; /* Positioning context for the overlay */
+    position: relative;
+    /* Positioning context for the overlay */
 
-    background-image: url('../img/5-hinh-nen-xam-trang-inkythuatso-27-14-20-37.jpg'); /* Background image */
-    background-size: cover; /* Ensure the background covers the entire element */
-    background-position: center; /* Center the background image */
+    background-image: url('../img/5-hinh-nen-xam-trang-inkythuatso-27-14-20-37.jpg');
+    /* Background image */
+    background-size: cover;
+    /* Ensure the background covers the entire element */
+    background-position: center;
+    /* Center the background image */
 
     &::before {
-        content: ''; /* Create overlay */
-        position: absolute; /* Cover the container */
+        content: '';
+        /* Create overlay */
+        position: absolute;
+        /* Cover the container */
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        background: @overlay-color; /* Overlay color */
-        z-index: 1; /* Overlay above the background */
+        background: @overlay-color;
+        /* Overlay color */
+        z-index: 1;
+        /* Overlay above the background */
     }
 }
 
@@ -55,25 +67,30 @@
     margin-top: 27px;
     margin-left: 66px;
     z-index: 2;
-    position: relative; /* Position for content above overlay */
+    position: relative;
+    /* Position for content above overlay */
 
     h1 {
         font-size: 30px;
         margin-bottom: 10px;
-        color: @product-title-color; /* Title color */
-        z-index: 2; /* Title above overlay */
+        color: @product-title-color;
+        /* Title color */
+        z-index: 2;
+        /* Title above overlay */
     }
 
-    p { 
+    p {
         margin-bottom: 15px;
         line-height: 1.5;
-        color: @product-title-color; /* Paragraph color */
-        z-index: 2; /* Paragraph above overlay */
+        color: @product-title-color;
+        /* Paragraph color */
+        z-index: 2;
+        /* Paragraph above overlay */
     }
 
 
 
-    
+
     .price-circle {
         display: flex;
         margin-left: 900px;
@@ -93,16 +110,17 @@
         transform: translateX(-50%); // Adjust horizontal centering
         opacity: 0; // Start hidden
         transition: top 0.8s ease, opacity 0.8s ease; // Transition properties
-    
+
         // Animation effect when the element is visible
         &.visible {
             top: 20%; // Move to desired position
             opacity: 1; // Make it visible
         }
-    
+
         p {
             margin: 0; // Remove default margin
             font-size: 16px;
+
             span {
                 font-weight: bold; // Make the price bold
             }
@@ -119,13 +137,16 @@
         li {
             margin: 5px;
             font-size: 16px;
-            width: calc(50% - 10px); /* Two items per row, minus spacing */
+            width: calc(50% - 10px);
+            /* Two items per row, minus spacing */
             display: inline-block;
-            z-index: 2; /* Items above overlay */
+            z-index: 2;
+            /* Items above overlay */
         }
 
         i {
-            color: #28a745; /* Icon color */
+            color: #28a745;
+            /* Icon color */
             margin-right: 5px;
         }
     }
@@ -133,17 +154,20 @@
     .learn-more {
         display: inline-block;
         padding: 10px 15px;
-        background-color: @button-bg-color; /* Button background color */
+        background-color: @button-bg-color;
+        /* Button background color */
         color: white;
         text-decoration: none;
-        border-radius: 5px;
-        z-index: 2; /* Button above overlay */
+        z-index: 2;
+        /* Button above overlay */
 
         &:hover {
-            background-color: @button-hover-bg-color; /* Button hover background */
+        background-color: @button-hover-bg-color;
+            /* Button hover background */
         }
     }
 }
+
 .product-image {
     flex: 1;
     z-index: 1; // Lower z-index than price-circle
